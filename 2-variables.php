@@ -84,7 +84,7 @@
     $c = '3';
     $d = 56;
     $total = $c + $d;
-    echo $total;
+    echo "El total de la suma es: $total";
     
     ?>
 </body>
