@@ -188,11 +188,15 @@
     <h3>Actividad: Montaña Rusa</h3>
     <form method="post">
         <div>
-            <label for="altura_juego">Escriba su altura en cm</label>
+            <label for="nombre_part">Escriba su nombre:</label>
+            <input type="text" name="nombre_part" id="nombre_part" required>
+        </div>
+        <div>
+            <label for="altura_juego">Escriba su altura en cm:</label>
             <input type="number" name="altura_juego" id="edad_juego" required>
         </div>
         <div>
-            <label for="edad_juego">Escriba su edad</label>
+            <label for="edad_juego">Escriba su edad:</label>
             <input type="number" name="edad_juego" id="edad_juego" required>
         </div>
         <div>
@@ -204,19 +208,67 @@
     </form>
 
     <?php 
+    $nombre_part = isset($_REQUEST['nombre_part']) ? $_REQUEST['nombre_part'] : '';
     $altura = isset($_REQUEST['altura_juego']) ? $_REQUEST['altura_juego'] : '';
     $edad = isset($_REQUEST['edad_juego']) ? $_REQUEST['edad_juego'] : '';
     $aceptar = isset($_REQUEST['aceptar']) ? $_REQUEST['aceptar'] : '';
+    $ticket = str_pad(rand(0, 99999), 5, "0", STR_PAD_LEFT);
 
     if (!empty($_REQUEST['altura_juego']) && !empty($_REQUEST['edad_juego']) && !empty($_REQUEST['aceptar'])) {
         if ($altura > 120 && $edad > 16 && strtolower($aceptar) == 'si') {
-            echo "<p>Puedes ingresar a la montaña rusa</p>";
+            echo "<p>$nombre_part puedes ingresar a la montaña rusa, tu nro de ticket es $ticket</p>";
         } else {
-            echo "<p>No puedes ingresar a la montaña rusa</p>";
+            echo "<p>$nombre_part no puedes ingresar a la montaña rusa</p>";
         }
     }
     ?>
 
+    <!-- Actividad 5.8: Formulario de Padres -->
+    <h3>Actividad: Formulario de Padres</h3>
+    <form method="post">
+        <div>
+            <label for="nombre_padre">Nombre Padre / Madre: </label>
+            <input type="text" name="nombre_padre" id="">
+        </div>
+        <div>
+            <label for="sexo">Sexo: </label>
+            <select name="sexo">
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+            </select>
+        </div>
+        <div>
+            <label for="hijos">Nro de hijos: </label>
+            <input type="number" name="hijos" id="">
+        </div>
+        <input type="submit" value="Validar">
+    </form>
+
+    <?php
+    $nombre_padre = isset($_REQUEST['nombre_padre']) ? $_REQUEST['nombre_padre'] : ''; 
+    $sexo = isset($_REQUEST['sexo']) ? $_REQUEST['sexo'] : '';
+    $hijos = isset($_REQUEST['hijos']) ? $_REQUEST['hijos'] : '';
+
+    if (!empty($_REQUEST['nombre_padre']) && !empty($_REQUEST['sexo'])) {
+        if ($sexo == 'F') {
+            $inicio = 'La señora';
+        } else {
+            $inicio = 'El señor';
+        }
+
+        if ($hijos == 0) {
+            $mensaje = "$inicio $nombre_padre no tiene hijos.";
+        } else {
+            if ($hijos == 1) {
+                $final = 'hijo';
+            } else {
+                $final = 'hijos';
+            }
+            $mensaje = "$inicio $nombre_padre tiene $hijos $final.";
+        } 
+        echo "<p>$mensaje</p>";
+    }
+    ?>
 
 </body>
 
