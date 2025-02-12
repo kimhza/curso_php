@@ -47,18 +47,18 @@ h3 {
     <div class="container-form">
         <!-- Actividad 7.2 -->
         <h2>Login</h2>
-        <form id="form-login" action="productos.php" method="post">
+        <form id="form-login" action="" method="post">
             <div class="form-field">
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre" required>
             </div>
             <div class="form-field">
                 <label for="pwd1">Contraseña</label>
-                <input type="password" name="pwd1" id="pwd1">
+                <input type="password" name="pwd1" id="pwd1" required>
             </div>
             <div class="form-field">
                 <label for="pwd2">Confirma la contraseña:</label>
-                <input type="password" name="pwd2" id="pwd2">
+                <input type="password" name="pwd2" id="pwd2" required>
             </div>
             <input type="submit" value="Ingresar">
         </form>
