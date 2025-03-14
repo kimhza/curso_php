@@ -1,8 +1,8 @@
 <?php 
-// Comprobamos si existe la sesión de apodo
+// Iniciamos la sesion
 session_start();
+// Si no existe la sesion de apodo, redirigimos a la pagina login.php
 if (!isset($_SESSION['apodo'])) {
-    // En caso contrario devolvemos a la página login.php
     header('Location: login.php');
     die();
 }
@@ -10,7 +10,7 @@ if (!isset($_SESSION['apodo'])) {
 <html>
 
 <body>
-    <!-- Saludamos -->
+    <!-- Deberia mostrar un mensaje con el apodo -->
     <h1>Bienvenido <?= $_SESSION['apodo'] ?></h1>
     <!-- Botón para cerrar la sesión -->
     <a href="logout.php">Cerrar sesión</a>

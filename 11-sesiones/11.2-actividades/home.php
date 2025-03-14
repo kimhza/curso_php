@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Pagina ejemplo</title>
 </head>
 <?php
 session_start();
@@ -25,7 +25,9 @@ if (isset($_POST['logout'])) {
 <body>
     <nav class="menu_home">
         <ul>
-            <li>Inicio</li>
+            <li>
+                <a href="#">Inicio</a>
+            </li>
             <li>
                 <a href="logout.php">Cerrar sesión</a>
             </li>

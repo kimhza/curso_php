@@ -1,22 +1,16 @@
-html,
-:root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   background-color: snow;
   font-family: monospace;
   font-size: 1rem;
+  margin: 0;
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90vw;
-  height: 100vh;
+  width: 100vw;
+  height: 80vh;
 }
 
 .container_form {
@@ -60,17 +54,27 @@ p.message_error {
 }
 
 .menu_home {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px;
   background-color: darkcyan;
 }
 
 nav.menu_home ul {
   display: flex;
   list-style: none;
-  gap: 10px;
+  gap: 20px;
   justify-content: flex-end;
+  font-size: 16px;
 }
 
 nav.menu_home ul li {
   color: white;
+}
+
+nav.menu_home ul li a {
+  color: white;
   font-size: 12px;
+  text-decoration: none;
 }

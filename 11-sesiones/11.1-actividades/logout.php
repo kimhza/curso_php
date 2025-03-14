@@ -1,8 +1,8 @@
 <?php 
-// Iniciamos las sesiones
+// Inicia la sesiones
 session_start();
-// Destruimos las sesiones
+// Destruye las sesiones
 session_destroy();
-// Llevamos a login.php
+// Redigire a login.php
 header('Location: login.php');
 die();
