@@ -23,23 +23,23 @@ sendmail_path = /usr/sbin/ssmtp -t
 4- Luego configuramos ssmtp:
 que se encuentra en esta ruta: /etc/ssmtp/ssmtp.conf
 ** por ejm: para que conecte con gmail:
-root=micuenta@gmail.com
-mailhub=smtp.gmail.com:587
-rewriteDomain=midomonio.com
-hostname=FQDN.yourdomain.com
+root= aqui se escriba la cuenta
+mailhub= aqui se pone el servidor y el puerto
+rewriteDomain= aqui va el dominio
+hostname= dominio
 UseTLS=Yes
 UseSTARTTLS=Yes
-AuthUser=micuenta@gmail.com
-AuthPass=micontraseña
-FromLineOverride=yes
+AuthUser= mi cuenta de correo
+AuthPass= la clave de mi cuenta
+FromLineOverride= yes
 
 Una vez este configurado se puede enviar email usando el metodo mail()
 mail(string $email_destinatario, string $asunto, string $mensaje, array $headers[]);
 $headers = [
-    'From' => 'curso@php.com',
+    'From' => "escribo la cuenta de correo destinatario',
     'Content-type' => 'text/plain; charset=utf-8'
 ];
-mail('correo@falso.com', 'Día especial', 'Gracias por suscribirte', $headers);
+mail('cuenta de correo recceptor', 'Día especial', 'Gracias por suscribirte', $headers);
 
 En el header (cabecera) indicamos la dirección del emisario (nosotros por medio de From) 
 y configuramos el correo para que admita acentos o carácteres especiales del español (Content-type).
@@ -78,11 +78,11 @@ $mensaje = '
 $headers = [
     'MIME-Version' => '1.0',
     'Content-type' => 'text/html; charset=utf-8',
-    'From' => 'curso@php.com'
+    'From' => 'cuenta destinatario'
 ];
 
 // Lo enviamos
-mail('correo@falso.com', 'Día especial', $mensaje, $headers);
+mail('cuenta receptor', 'Día especial', $mensaje, $headers);
 
 * Si necesitamos realizar acciones avanzadas como indicar la configuracion
 del servidor SMTP o enviar archivos adjuntos podemos hacer uso de PHPMailer.
@@ -102,16 +102,16 @@ $mail = new PHPMailer();
 try {
     // Configuración servidor SMTP
     $mail->isSMTP();
-    $mail->Host       = 'smtp.correo.com';
+    $mail->Host       = 'smtp del host';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'usuario@correo.com';
-    $mail->Password   = 'contraseña';
+    $mail->Username   = 'correo destinatario';
+    $mail->Password   = 'clave';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Port       = puerto;
 
-    $mail->setFrom('emisor@correo.es', 'Nombre emisor');
+    $mail->setFrom('correo destinatario', 'Nombre emisor');
     // Quien lo recibe
-    $mail->addAddress('receptor@correo.es', 'Nombre receptor');
+    $mail->addAddress('correo receptor', 'Nombre receptor');
 
     // Contenido
     $mail->isHTML(true);
