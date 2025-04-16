@@ -32,15 +32,17 @@
                     <td><?= htmlspecialchars($relato['email']) ?></td>
                     <td> <a class="btn-accion btn-accion-editar"
                             href="index.php?accion=editar&id=<?= $relato['id']?>">Editar</a>
+                        <a class="btn-accion btn-accion-eliminar"
+                            href="index.php?accion=eliminar&id=<?= $relato['id'] ?> ">Eliminar</a>
                     </td>
-                    <td> <a class="btn-accion btn-accion-eliminar"
-                            href="index.php?accion=eliminar&id=<?= $relato['id'] ?> ">Eliminar</a> </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <p>Aqui puedes añadir un nuevo relato:</p>
-        <a class="btn-accion btn-accion-crear" href="index.php?accion=crear">Crear nuevo relato</a>
+        <p>Aqui puedes añadir un nuevo relato: <a class="btn-accion btn-accion-crear"
+                href="index.php?accion=crear">Crear nuevo relato</a> </p>
+
+        <p>El total de relatos es: <?= $conteo; ?></p>
     </main>
 </body>
 

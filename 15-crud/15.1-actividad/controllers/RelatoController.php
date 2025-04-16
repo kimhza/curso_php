@@ -6,6 +6,7 @@ class RelatoController {
 
     public function listar() {
         $relatos = Relato::obtenerTodos();
+        $conteo = Relato::contar_relatos(); 
         require_once '../views/index.php';
     }
 

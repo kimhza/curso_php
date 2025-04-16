@@ -56,4 +56,13 @@ class Relato {
         $cons_prep->bindParam('id', $id);
         $cons_prep->execute(); 
     }
+
+    public static function contar_relatos() {
+        $conexion = Database::obtenerConexion();
+        $consulta = "SELECT COUNT(*) as total FROM tbl_relatos;";
+        $cons_prep = $conexion->prepare($consulta);
+        $cons_prep->execute();
+        $result = $cons_prep->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    }
 }
