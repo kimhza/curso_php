@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
@@ -29,14 +30,17 @@
                     <td><?= htmlspecialchars($relato['relato']) ?></td>
                     <td><?= htmlspecialchars($relato['nombre']) ?></td>
                     <td><?= htmlspecialchars($relato['email']) ?></td>
-                    <td> <a href="index.php?accion=editar&id=<?= $relato['id']?>">Editar</a> </td>
-                    <td> <a href="index.php?accion=eliminar&id=<?= $relato['id'] ?> ">Eliminar</a> </td>
+                    <td> <a class="btn-accion btn-accion-editar"
+                            href="index.php?accion=editar&id=<?= $relato['id']?>">Editar</a>
+                    </td>
+                    <td> <a class="btn-accion btn-accion-eliminar"
+                            href="index.php?accion=eliminar&id=<?= $relato['id'] ?> ">Eliminar</a> </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         <p>Aqui puedes añadir un nuevo relato:</p>
-        <a href="index.php?accion=crear">Crear nuevo relato</a>
+        <a class="btn-accion btn-accion-crear" href="index.php?accion=crear">Crear nuevo relato</a>
     </main>
 </body>
 

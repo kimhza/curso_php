@@ -1,7 +1,4 @@
-<?php  
-
-define('BASE_URL', 'http://localhost:8000/15-crud/15.1-actividad/public/');
-
+<?php
 include_once '../config/Database.php';
 include_once '../models/Relato.php';
 include_once '../controllers/RelatoController.php';
