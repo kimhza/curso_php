@@ -17,8 +17,9 @@
                 <input id="titulo" name="titulo" type="text" value="<?= $serie['titulo'] ?>" required>
             </div>
             <div>
-                <label for="valoracion">Titulo</label>
-                <input id="valoracion" name="valoracion" type="text" value="<?= $serie['valoracion'] ?>" required>
+                <label for="valoracion">Valoracion</label>
+                <input id="valoracion" name="valoracion" type="number" value="<?= $serie['valoracion'] ?>" min="0"
+                    max="10" required>
             </div>
             <button type="submit">Actualizar</button>
         </form>

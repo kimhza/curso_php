@@ -10,7 +10,7 @@ class Serie {
     }
 
     public function obtenerTodos() {
-        $consulta = 'SELECT * FROM series';
+        $consulta = 'SELECT * FROM series ORDER BY valoracion DESC';
         $objStmt = $this->pdo->query($consulta);
         $arrResultado = $objStmt->fetchAll(PDO::FETCH_ASSOC);
         return $arrResultado;
@@ -36,6 +36,7 @@ class Serie {
     public function editar($id, $titulo, $valoracion) {
         $consulta = 'UPDATE series SET titulo = :titulo, valoracion = :valoracion WHERE id = :id';
         $objStmt = $this->pdo->prepare($consulta);
+        $objStmt->bindParam(':id', $id);
         $objStmt->bindParam(':titulo', $titulo);
         $objStmt->bindParam(':valoracion', $valoracion);
         $objStmt->execute();

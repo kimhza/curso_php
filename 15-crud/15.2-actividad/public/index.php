@@ -5,7 +5,7 @@ include_once '../controllers/SerieController.php';
 include_once '../models/Serie.php';
 
 $accion = isset($_GET['accion']) ? $_GET['accion'] : null;
-$codigo = isset($_GET['codigo']) ? $_GET['codigo'] : null;
+$codigo = isset($_GET['id']) ? $_GET['id'] : null;
 
 $seriecontroller = new SerieController();
 
