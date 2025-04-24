@@ -38,8 +38,6 @@ class RelatoController {
             $email = $_POST['email'];
             Relato::crear($titulo, $relato, $nombre, $email);
             header('Location:index.php');
-        } else {
-            require_once '../views/index.php';
         }
     }
 
@@ -52,8 +50,6 @@ class RelatoController {
             $email = $_POST['email'];
             Relato::editar($id, $titulo, $relato, $nombre, $email);
             header('Location:index.php');
-        } else {
-            require_once '../views/index.php';
         }
     }
 }
